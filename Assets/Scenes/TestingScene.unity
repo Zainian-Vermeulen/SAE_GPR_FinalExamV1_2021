@@ -603,6 +603,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7545065591762958709, guid: 91b6b57c44ad937458ed73bc6b1700c8, type: 3}
+      propertyPath: dropCollector
+      value: 
+      objectReference: {fileID: 1404080999}
     - target: {fileID: 7958410239221670385, guid: 91b6b57c44ad937458ed73bc6b1700c8, type: 3}
       propertyPath: m_Name
       value: Eve_Player

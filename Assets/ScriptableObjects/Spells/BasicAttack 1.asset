@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe027bb29072f8549ab32d3bf0b20a52, type: 3}
-  m_Name: BasicAttack
+  m_Name: BasicAttack 1
   m_EditorClassIdentifier: 
   SpellName: ShockBlast
   Description: 'Fires a ball lighting that quickly flies in a straight line.
