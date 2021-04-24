@@ -23,6 +23,10 @@ public class LootDescription : ScriptableObject
             {
                 return pair.Drop;
             }
+            else
+            {
+                return pair.Drop;
+            }
 
         }
         return null;
