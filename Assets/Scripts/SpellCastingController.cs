@@ -24,6 +24,7 @@ public class SpellCastingController : MonoBehaviour, IPlayerAction
     public SpellDescription SpecialAttackSpellDescription { get => specialAttackSpell; }
 
     private bool canUseSpecialAbility = false;
+    private bool canUseNewSpecialAbility = false;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class SpellCastingController : MonoBehaviour, IPlayerAction
         Debug.Assert(specialAttackSpell, "No spell assigned to SpellCastingController.");
 
         dropCollector.SpecialAbilityDrop += CanUseSpecialAbility;
+        dropCollector.NewSpecialAbilityDrop += CanUseNewSpecialAbility;
     }
 
     void Update()
@@ -44,16 +46,22 @@ public class SpellCastingController : MonoBehaviour, IPlayerAction
             {
                 StartCoroutine(SimpleAttackRoutine());
             }
-            else if ((specialAttack) && (GetSpecialAttackCooldown() == 0) && (canUseSpecialAbility == true))
+            else if (((specialAttack) && (GetSpecialAttackCooldown() == 0)) && (canUseSpecialAbility == true) || (canUseNewSpecialAbility == false))
             {
                 StartCoroutine(SpecialAttackRoutine());
             }
+         
         }
     }
 
     private void CanUseSpecialAbility()
     {
         canUseSpecialAbility = true;
+    }
+
+    private void CanUseNewSpecialAbility()
+    {
+        canUseNewSpecialAbility = true;
     }
 
     private IEnumerator SimpleAttackRoutine()

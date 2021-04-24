@@ -28,7 +28,8 @@ public class PlayerHud : MonoBehaviour
 
         dropCollector.DropsInRangeChanged += OnDropsInRangeChanged;
         dropCollector.SpecialAbilityDrop += CollectSpecailAbility;
-        
+        dropCollector.NewSpecialAbilityDrop += NewSpecialAbility;
+
     }
 
     private void OnDropsInRangeChanged()
@@ -42,6 +43,11 @@ public class PlayerHud : MonoBehaviour
     {
         spellIcon2.SetActive(true);
         spellImage2.enabled = true;
+
+    }
+
+    private void NewSpecialAbility()
+    {
 
     }
 

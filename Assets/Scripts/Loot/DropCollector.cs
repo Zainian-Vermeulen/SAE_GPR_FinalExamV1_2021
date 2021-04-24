@@ -11,6 +11,8 @@ public class DropCollector : MonoBehaviour
     public event System.Action DropsInRangeChanged;
     public event System.Action<Drop> DropCollected;
     public event System.Action SpecialAbilityDrop;
+    public event System.Action NewSpecialAbilityDrop;
+    private bool specialAbility = false;
 
     public int DropsInRangeCount { get => dropsInRange.Count; }
 
@@ -32,11 +34,17 @@ public class DropCollector : MonoBehaviour
     private void Collect(RuntimeDropInstance drop)
     {
         Debug.Log($"Collected: {drop.GetDrop().DropName}");
-       
+        
         if (drop.GetDrop().DropName == "Special Ability")
         {
             Debug.Log("special ability invoked");
             SpecialAbilityDrop?.Invoke();
+            specialAbility = true;
+        }
+
+        if ((specialAbility == true) && (drop.GetDrop().DropName == "Special Ability"))
+        {
+            NewSpecialAbilityDrop?.Invoke();
         }
 
         dropsInRange.Remove(drop);
