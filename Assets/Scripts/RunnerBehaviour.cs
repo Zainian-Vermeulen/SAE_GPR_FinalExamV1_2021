@@ -65,16 +65,17 @@ public class RunnerBehaviour : MonoBehaviour, IEnemy
     private IEnumerator DeathRoutine()
     {
         animator.SetTrigger(DEAD_ANIMATOR_ID);
-        navMeshAgent.isStopped = true;
-        navMeshAgent.enabled = false;
-
-        yield return new WaitForSeconds(3f);
-
+        var newCollider = gameObject.GetComponent<Collider>();
+        newCollider.enabled = false;
         if (lootDescription != null)
         {
             var drop = lootDescription.SelectDropRandomly();
             dropSpawner.SpawnDropAt(drop, transform.position);
         }
+        navMeshAgent.isStopped = true;
+        navMeshAgent.enabled = false;
+
+        yield return new WaitForSeconds(3f);
 
         Destroy(gameObject);
     }
