@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 public class DropCollector : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class DropCollector : MonoBehaviour
 
     public event System.Action DropsInRangeChanged;
     public event System.Action<Drop> DropCollected;
+    public event System.Action SpecialAbilityDrop;
 
     public int DropsInRangeCount { get => dropsInRange.Count; }
 
@@ -29,6 +32,13 @@ public class DropCollector : MonoBehaviour
     private void Collect(RuntimeDropInstance drop)
     {
         Debug.Log($"Collected: {drop.GetDrop().DropName}");
+       
+        if (drop.GetDrop().DropName == "Special Ability")
+        {
+            Debug.Log("special ability invoked");
+            SpecialAbilityDrop?.Invoke();
+        }
+
         dropsInRange.Remove(drop);
         Destroy(drop.gameObject);
         DropsInRangeChanged?.Invoke();

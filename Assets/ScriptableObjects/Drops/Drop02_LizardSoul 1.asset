@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b9a414f9a170f041bedaace873a6460, type: 3}
-  m_Name: Drop01_Money
+  m_Name: Drop02_LizardSoul 1
   m_EditorClassIdentifier: 
-  DropName: Gold
+  DropName: Lizard Soul
   Description: 
   Rarity: 1

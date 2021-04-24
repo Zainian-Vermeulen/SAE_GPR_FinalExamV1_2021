@@ -18,9 +18,7 @@ public class LootDescription : ScriptableObject
         {
             
             float rnd = Random.value; 
-            Debug.Log("the rnd value is: " + rnd);
             DropProbabilityPair pair = drops[i];
-            Debug.Log("the pair.probability is: " + pair.Probability);
             if (rnd < pair.Probability)
             {
                 return pair.Drop;
