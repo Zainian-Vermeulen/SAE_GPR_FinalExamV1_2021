@@ -16054,6 +16054,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1252509906, guid: 91b6b57c44ad937458ed73bc6b1700c8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.24900055
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252509906, guid: 91b6b57c44ad937458ed73bc6b1700c8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.8854713
+      objectReference: {fileID: 0}
     - target: {fileID: 7294181437124901707, guid: 91b6b57c44ad937458ed73bc6b1700c8, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -16098,6 +16106,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7545065591762958709, guid: 91b6b57c44ad937458ed73bc6b1700c8, type: 3}
+      propertyPath: dropCollector
+      value: 
+      objectReference: {fileID: 562764426}
     - target: {fileID: 7958410239221670385, guid: 91b6b57c44ad937458ed73bc6b1700c8, type: 3}
       propertyPath: m_Name
       value: Eve_Player
