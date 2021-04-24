@@ -16,7 +16,12 @@ public class PlayerHud : MonoBehaviour
     [SerializeField] private TMPro.TMP_Text spellCooldownText2;
 
     [SerializeField] private GameObject collectUIObject;
-    [SerializeField] private Image spellInUse;
+    
+    [SerializeField] private Image spellInUse1;
+    [SerializeField] private Image spellInUse2;
+
+
+
 
     private void Start()
     {
@@ -28,7 +33,7 @@ public class PlayerHud : MonoBehaviour
 
         dropCollector.DropsInRangeChanged += OnDropsInRangeChanged;
         dropCollector.SpecialAbilityDrop += CollectSpecailAbility;
-        dropCollector.NewSpecialAbilityDrop += NewSpecialAbility;
+      
 
     }
 
@@ -45,46 +50,69 @@ public class PlayerHud : MonoBehaviour
         spellImage2.enabled = true;
 
     }
-
-    private void NewSpecialAbility()
-    {
-
-    }
-
+    
     private void GetCooldown()
     {
         float cooldown = spellCastingController.GetSimpleAttackCooldown();
         float cooldown2 = spellCastingController.GetSpecialAttackCooldown();
-
+        bool casting1 = false;
+        bool casting2 = false;
 
         if (cooldown > 0)
         {
-            // spellInUse.enabled = false;
-
+            casting1 = true;
             spellCooldownText.text = cooldown.ToString("0.0");
             spellIcon.color = new Color(0.25f, 0.25f, 0.25f, 1);
             spellCooldownText.rectTransform.localScale.Set(1.0f, 1.0f, 1.0f);
+
         }
         else
         {
-            //spellInUse.enabled = true;
+            casting1 = false;
             spellCooldownText.text = "";
             spellIcon.color = Color.white;
             spellCooldownText.rectTransform.localScale.Set(2.0f, 2.0f, 2.0f);
+            
 
         }
 
         if (cooldown2 > 0)
         {
+            casting2 = true;
             spellCooldownText2.text = cooldown.ToString("0.0");
             spellImage2.color = new Color(0.25f, 0.25f, 0.25f, 1);
             spellCooldownText2.rectTransform.localScale.Set(1.0f, 1.0f, 1.0f);
+            
         }
         else
         {
+            casting2 = false;
             spellCooldownText2.text = "";
             spellImage2.color = Color.white;
             spellCooldownText2.rectTransform.localScale.Set(2.0f, 2.0f, 2.0f);
+            
+        }
+
+        if (casting1 == true)
+        {
+            spellIcon.rectTransform.localScale.Set(2.0f, 2.0f, 2.0f);
+            spellInUse1.enabled = true;
+        }
+        else
+        {
+            spellIcon.rectTransform.localScale.Set(1.0f, 1.0f, 1.0f);
+            spellInUse1.enabled = false;
+        }
+
+        if (casting2 == true) 
+        {
+            spellImage2.rectTransform.localScale.Set(2.0f, 2.0f, 2.0f);
+            spellInUse2.enabled = true;
+        }
+        else
+        {
+            spellImage2.rectTransform.localScale.Set(1.0f, 1.0f, 1.0f);
+            spellInUse2.enabled = false;
         }
     }
 

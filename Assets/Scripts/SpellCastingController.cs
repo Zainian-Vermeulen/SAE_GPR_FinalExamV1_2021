@@ -46,8 +46,9 @@ public class SpellCastingController : MonoBehaviour, IPlayerAction
             {
                 StartCoroutine(SimpleAttackRoutine());
             }
-            else if (((specialAttack) && (GetSpecialAttackCooldown() == 0)) && (canUseSpecialAbility == true) || (canUseNewSpecialAbility == false))
+            else if ((specialAttack) && (GetSpecialAttackCooldown() == 0) && (canUseSpecialAbility == true))
             {
+                Debug.Log("casting now");
                 StartCoroutine(SpecialAttackRoutine());
             }
          
