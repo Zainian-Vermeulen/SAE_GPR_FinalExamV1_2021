@@ -18,11 +18,14 @@ public class SimpleProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.TryGetComponent(out IDamagable damagable))
         {
             damagable.TakeDamage(damage);
-            Instantiate(_projectileHitVFX,other.transform);
+            if (_projectileHitVFX != null)
+            { 
+                Instantiate(_projectileHitVFX,other.transform);
+            }
         }
 
         Destroy(gameObject);
